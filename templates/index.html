@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dashboard</title>
+<style>
+body {margin:0; font-family:Arial;}
+.sidebar {width:220px; height:100vh; background:#16a085; color:white; position:fixed;}
+.sidebar h2 {padding:15px;}
+.sidebar a {display:block; color:white; padding:12px; text-decoration:none;}
+.sidebar a:hover {background:#138d75;}
+.main {margin-left:220px; padding:20px;}
+.card {display:inline-block; width:250px; padding:20px; margin:10px; border-radius:10px; color:white;}
+.red {background:#ff6b6b;}
+.green {background:#1abc9c;}
+.yellow {background:#f1c40f; color:black;}
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+<h2>Bus Pass MS</h2>
+<a href="{{ url_for('index') }}">Dashboard</a>
+<a href="{{ url_for('add_pass') }}">Add Pass</a>
+<a href="{{ url_for('scanner') }}">Scan QR</a>
+</div>
+
+<div class="main">
+<h1>Dashboard</h1>
+
+<div class="card red">
+<h3>Total Pass</h3>
+<h2>{{total}}</h2>
+</div>
+
+<div class="card green">
+<h3>Create Pass</h3>
+<a href="{{ url_for('add_pass') }}" style="color:white;">Go</a>
+</div>
+
+<div class="card yellow">
+<h3>Scan QR</h3>
+<a href="{{ url_for('scanner') }}">Open</a>
+</div>
+
+</div>
+
+</body>
+</html>

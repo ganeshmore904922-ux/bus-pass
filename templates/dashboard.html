@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial;
+        }
+
+        body{
+            display:flex;
+            background:#f4f6f9;
+        }
+
+        .sidebar{
+            width:250px;
+            background:#1f2d3d;
+            min-height:100vh;
+            color:white;
+            padding-top:20px;
+        }
+
+        .sidebar h2{
+            text-align:center;
+            margin-bottom:20px;
+        }
+
+        .sidebar ul{
+            list-style:none;
+        }
+
+        .sidebar ul li{
+            padding:15px 20px;
+            border-bottom:1px solid #34495e;
+        }
+
+        .sidebar ul li a{
+            color:white;
+            text-decoration:none;
+            display:block;
+        }
+
+        .sidebar ul li:hover{
+            background:#34495e;
+        }
+
+        .main{
+            flex:1;
+            padding:30px;
+        }
+
+        .top{
+            background:white;
+            padding:20px;
+            border-radius:10px;
+            margin-bottom:30px;
+        }
+
+        .cards{
+            display:flex;
+            gap:20px;
+        }
+
+        .card{
+            flex:1;
+            padding:30px;
+            border-radius:10px;
+            text-align:center;
+            color:white;
+            font-size:24px;
+        }
+
+        .blue{
+            background:#3498db;
+        }
+
+        .green{
+            background:#2ecc71;
+        }
+    </style>
+</head>
+<body>
+
+<div class="sidebar">
+
+    <h2>Bus Pass</h2>
+
+    <ul>
+        <li><a href="/">Dashboard</a></li>
+        <li><a href="/add-pass">Add Pass</a></li>
+        <li><a href="/view-pass">View Pass</a></li>
+    </ul>
+
+</div>
+
+<div class="main">
+
+    <div class="top">
+        <h1>Dashboard</h1>
+    </div>
+
+    <div class="cards">
+
+        <div class="card blue">
+            Total Pass <br><br>
+            {{ total_pass }}
+        </div>
+
+        <div class="card green">
+            Active Pass <br><br>
+            {{ total_pass }}
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

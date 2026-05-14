@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bus Pass</title>
+
+    <style>
+        body{
+            background:#f2f2f2;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+            font-family:Arial;
+        }
+
+        .pass-card{
+            width:850px;
+            background:white;
+            border:2px solid #ccc;
+        }
+
+        .header{
+            background:#0033a0;
+            color:white;
+            text-align:center;
+            padding:20px;
+            font-size:32px;
+            font-weight:bold;
+        }
+
+        .content{
+            display:flex;
+            padding:25px;
+        }
+
+        .photo{
+            width:220px;
+            text-align:center;
+        }
+
+        .photo img{
+            width:180px;
+            height:180px;
+            border-radius:10px;
+            object-fit:cover;
+        }
+
+        .details{
+            flex:1;
+            padding-left:25px;
+        }
+
+        .details h1{
+            margin:0;
+            font-size:38px;
+        }
+
+        .details p{
+            font-size:26px;
+            margin:12px 0;
+        }
+
+        .qr{
+            text-align:center;
+        }
+
+        .qr img{
+            width:170px;
+        }
+
+        .verified{
+            background:#2ecc71;
+            color:white;
+            text-align:center;
+            padding:12px;
+            font-size:28px;
+            font-weight:bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="pass-card">
+
+    <div class="header">
+        Maharashtra Bus Travel Pass
+    </div>
+
+    <div class="content">
+
+        <div class="photo">
+
+            {% if pass_data.photo %}
+            <img src="{{ url_for('static',
+            filename='uploads/' + pass_data.photo) }}">
+            {% endif %}
+
+        </div>
+
+        <div class="details">
+
+            <h1>{{ pass_data.fullname }}</h1>
+
+            <p><b>Gender:</b>
+            {{ pass_data.gender }}</p>
+
+            <p><b>Mobile:</b>
+            {{ pass_data.mobile }}</p>
+
+            <p><b>Source:</b>
+            {{ pass_data.source }}</p>
+
+            <p><b>Destination:</b>
+            {{ pass_data.destination }}</p>
+
+            <p><b>Pass Type:</b>
+            {{ pass_data.pass_type }}</p>
+
+        </div>
+
+        <div class="qr">
+
+            <img src="{{ url_for('static',
+            filename='qr/' + pass_data.id|string + '.png') }}">
+
+        </div>
+
+    </div>
+
+    <div class="verified">
+        ✅ VERIFIED BUS PASS
+    </div>
+
+</div>
+
+</body>
+</html>

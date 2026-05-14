@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Pass</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial;
+        }
+
+        body{
+            display:flex;
+            background:#f4f6f9;
+        }
+
+        .sidebar{
+            width:250px;
+            background:#1f2d3d;
+            min-height:100vh;
+            color:white;
+            padding-top:20px;
+        }
+
+        .sidebar h2{
+            text-align:center;
+            margin-bottom:20px;
+        }
+
+        .sidebar ul{
+            list-style:none;
+        }
+
+        .sidebar ul li{
+            padding:15px 20px;
+            border-bottom:1px solid #34495e;
+        }
+
+        .sidebar ul li a{
+            color:white;
+            text-decoration:none;
+        }
+
+        .sidebar ul li:hover{
+            background:#34495e;
+        }
+
+        .main{
+            flex:1;
+            padding:30px;
+        }
+
+        .box{
+            background:white;
+            padding:20px;
+            border-radius:10px;
+            overflow-x:auto;
+        }
+
+        h1{
+            margin-bottom:20px;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+        }
+
+        table th{
+            background:#3498db;
+            color:white;
+            padding:12px;
+        }
+
+        table td{
+            border:1px solid #ddd;
+            padding:12px;
+            text-align:center;
+        }
+
+        img{
+            border-radius:5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="sidebar">
+
+    <h2>Bus Pass</h2>
+
+    <ul>
+        <li><a href="/">Dashboard</a></li>
+        <li><a href="/add-pass">Add Pass</a></li>
+        <li><a href="/view-pass">View Pass</a></li>
+    </ul>
+
+</div>
+
+<div class="main">
+
+    <div class="box">
+
+        <h1>View Pass</h1>
+
+        <table>
+
+            <tr>
+                <th>ID</th>
+                <th>Photo</th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Mobile</th>
+                <th>Source</th>
+                <th>Destination</th>
+                <th>Pass Type</th>
+                <th>QR Code</th>
+            </tr>
+
+            {% for pass in passes %}
+
+            <tr>
+
+                <td>{{ pass.id }}</td>
+
+                <td>
+                    {% if pass.photo %}
+                    <img src="{{ url_for('static',
+                    filename='uploads/' + pass.photo) }}"
+                    width="70">
+                    {% endif %}
+                </td>
+
+                <td>{{ pass.fullname }}</td>
+                <td>{{ pass.gender }}</td>
+                <td>{{ pass.mobile }}</td>
+                <td>{{ pass.source }}</td>
+                <td>{{ pass.destination }}</td>
+                <td>{{ pass.pass_type }}</td>
+
+                <td>
+                    <img src="{{ url_for('static',
+                    filename='qr/' + pass.id|string + '.png') }}"
+                    width="80">
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+</div>
+
+</body>
+</html>

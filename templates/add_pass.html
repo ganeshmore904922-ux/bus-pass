@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Pass</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial;
+        }
+
+        body{
+            display:flex;
+            background:#f4f6f9;
+        }
+
+        .sidebar{
+            width:250px;
+            background:#1f2d3d;
+            min-height:100vh;
+            color:white;
+            padding-top:20px;
+        }
+
+        .sidebar h2{
+            text-align:center;
+            margin-bottom:20px;
+        }
+
+        .sidebar ul{
+            list-style:none;
+        }
+
+        .sidebar ul li{
+            padding:15px 20px;
+            border-bottom:1px solid #34495e;
+        }
+
+        .sidebar ul li a{
+            color:white;
+            text-decoration:none;
+        }
+
+        .sidebar ul li:hover{
+            background:#34495e;
+        }
+
+        .main{
+            flex:1;
+            padding:30px;
+        }
+
+        .box{
+            background:white;
+            padding:30px;
+            border-radius:10px;
+        }
+
+        h1{
+            margin-bottom:20px;
+        }
+
+        form{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:15px;
+        }
+
+        input,
+        select,
+        textarea{
+            width:100%;
+            padding:12px;
+            border:1px solid #ccc;
+            border-radius:5px;
+        }
+
+        textarea{
+            resize:none;
+        }
+
+        .full{
+            grid-column:span 2;
+        }
+
+        button{
+            background:#3498db;
+            color:white;
+            border:none;
+            padding:12px;
+            border-radius:5px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:#2980b9;
+        }
+    </style>
+</head>
+<body>
+
+<div class="sidebar">
+
+    <h2>Bus Pass</h2>
+
+    <ul>
+        <li><a href="/">Dashboard</a></li>
+        <li><a href="/add-pass">Add Pass</a></li>
+        <li><a href="/view-pass">View Pass</a></li>
+    </ul>
+
+</div>
+
+<div class="main">
+
+    <div class="box">
+
+        <h1>Add Pass</h1>
+
+        <form method="POST" enctype="multipart/form-data">
+
+            <input type="text"
+                   name="fullname"
+                   placeholder="Full Name"
+                   required>
+
+            <select name="gender" required>
+                <option value="">Select Gender</option>
+                <option>Male</option>
+                <option>Female</option>
+            </select>
+
+            <input type="date"
+                   name="dob"
+                   required>
+
+            <input type="text"
+                   name="mobile"
+                   placeholder="Mobile Number"
+                   required>
+
+            <input type="email"
+                   name="email"
+                   placeholder="Email">
+
+            <input type="text"
+                   name="source"
+                   placeholder="Source"
+                   required>
+
+            <input type="text"
+                   name="destination"
+                   placeholder="Destination"
+                   required>
+
+            <select name="pass_type" required>
+                <option value="">Pass Type</option>
+                <option>Monthly</option>
+                <option>Quarterly</option>
+            </select>
+
+            <textarea
+                class="full"
+                name="address"
+                rows="4"
+                placeholder="Address"></textarea>
+
+            <input
+                class="full"
+                type="file"
+                name="photo">
+
+            <button
+                class="full"
+                type="submit">
+
+                Create Pass
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>
