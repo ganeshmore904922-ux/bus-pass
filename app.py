@@ -136,7 +136,7 @@ def add_pass():
         pass_id = cursor.lastrowid
 
         # Your Laptop IP Address
-        qr_link = f"http://10.202.35.67:5000/pass/{pass_id}"
+       img = qrcode.make(f"https://bus-pass-awm8.onrender.com/pass/{pass_id}")
 
         qr = qrcode.make(qr_link)
 
